@@ -1,0 +1,147 @@
+# Epoch hyperparams
+stabilization_epochs: 1.0
+pruning_epochs: 9.0
+finetuning_epochs: 5.0
+
+# Learning rate hyperparams
+init_lr: 0.0001
+final_lr: 0.00005
+
+# Pruning hyperparams
+init_sparsity: 0.05
+final_sparsity: 0.5
+
+# Stabalization Stage
+training_modifiers:
+  - !EpochRangeModifier
+    start_epoch: 0.0
+    end_epoch: eval(stabilization_epochs + pruning_epochs + finetuning_epochs)
+  
+  - !SetLearningRateModifier
+    start_epoch: 0.0
+    learning_rate: eval(init_lr)
+
+# Pruning Stage
+pruning_modifiers:
+  - !LearningRateFunctionModifier
+    init_lr: eval(init_lr)
+    final_lr: eval(final_lr)
+    lr_func: cosine
+    start_epoch: eval(stabilization_epochs)
+    end_epoch: eval(stabilization_epochs + pruning_epochs)
+    
+  - !GlobalMagnitudePruningModifier
+    init_sparsity: eval(init_sparsity)
+    final_sparsity: eval(final_sparsity)
+    start_epoch: eval(stabilization_epochs)
+    end_epoch: eval(stabilization_epochs + pruning_epochs)
+    update_frequency: 0.5
+    params:        
+        - 'backbone.patch_embed1.proj.weight'
+        - 'backbone.patch_embed2.proj.weight'
+        - 'backbone.patch_embed3.proj.weight'
+        - 'backbone.block1.0.attn.keys.weight'
+        - 'backbone.block1.0.attn.queries.weight'
+        - 'backbone.block1.0.attn.values.weight'
+        - 'backbone.block1.0.attn.reprojection.weight'
+        - 'backbone.block1.0.channel_attn.qkv.weight'
+        - 'backbone.block1.0.channel_attn.proj.weight'
+        - 'backbone.block1.0.mlp1.fc1.weight'
+        - 'backbone.block1.0.mlp1.dwconv.dwconv.weight'
+        - 'backbone.block1.0.mlp1.fc2.weight'
+        - 'backbone.block1.0.mlp2.fc1.weight'
+        - 'backbone.block1.0.mlp2.dwconv.dwconv.weight'
+        - 'backbone.block1.0.mlp2.fc2.weight'
+        - 'backbone.block2.0.attn.keys.weight'
+        - 'backbone.block2.0.attn.queries.weight'
+        - 'backbone.block2.0.attn.values.weight'
+        - 'backbone.block2.0.attn.reprojection.weight'
+        - 'backbone.block2.0.channel_attn.qkv.weight'
+        - 'backbone.block2.0.channel_attn.proj.weight'
+        - 'backbone.block2.0.mlp1.fc1.weight'
+        - 'backbone.block2.0.mlp1.dwconv.dwconv.weight'
+        - 'backbone.block2.0.mlp1.fc2.weight'
+        - 'backbone.block2.0.mlp2.fc1.weight'
+        - 'backbone.block2.0.mlp2.dwconv.dwconv.weight'
+        - 'backbone.block2.0.mlp2.fc2.weight'
+        - 'backbone.block3.0.attn.keys.weight'
+        - 'backbone.block3.0.attn.queries.weight'
+        - 'backbone.block3.0.attn.values.weight'
+        - 'backbone.block3.0.attn.reprojection.weight'
+        - 'backbone.block3.0.channel_attn.qkv.weight'
+        - 'backbone.block3.0.channel_attn.proj.weight'
+        - 'backbone.block3.0.mlp1.fc1.weight'
+        - 'backbone.block3.0.mlp1.dwconv.dwconv.weight'
+        - 'backbone.block3.0.mlp1.fc2.weight'
+        - 'backbone.block3.0.mlp2.fc1.weight'
+        - 'backbone.block3.0.mlp2.dwconv.dwconv.weight'
+        - 'backbone.block3.0.mlp2.fc2.weight'
+        - 'decoder_2.x1_linear.weight'
+        - 'decoder_2.cross_attn.attn.reprojection.weight'
+        - 'decoder_2.cross_attn.mlp.fc1.weight'
+        - 'decoder_2.cross_attn.mlp.dwconv.dwconv.weight'
+        - 'decoder_2.cross_attn.mlp.fc2.weight'
+        - 'decoder_2.concat_linear.weight'
+        - 'decoder_2.layer_up.expand.weight'
+        - 'decoder_2.layer_former_1.attn.keys.weight'
+        - 'decoder_2.layer_former_1.attn.queries.weight'
+        - 'decoder_2.layer_former_1.attn.values.weight'
+        - 'decoder_2.layer_former_1.attn.reprojection.weight'
+        - 'decoder_2.layer_former_1.channel_attn.qkv.weight'
+        - 'decoder_2.layer_former_1.channel_attn.proj.weight'
+        - 'decoder_2.layer_former_1.mlp1.fc1.weight'
+        - 'decoder_2.layer_former_1.mlp1.dwconv.dwconv.weight'
+        - 'decoder_2.layer_former_1.mlp1.fc2.weight'
+        - 'decoder_2.layer_former_1.mlp2.fc1.weight'
+        - 'decoder_2.layer_former_1.mlp2.dwconv.dwconv.weight'
+        - 'decoder_2.layer_former_1.mlp2.fc2.weight'
+        - 'decoder_2.layer_former_2.attn.keys.weight'
+        - 'decoder_2.layer_former_2.attn.queries.weight'
+        - 'decoder_2.layer_former_2.attn.values.weight'
+        - 'decoder_2.layer_former_2.attn.reprojection.weight'
+        - 'decoder_2.layer_former_2.channel_attn.qkv.weight'
+        - 'decoder_2.layer_former_2.channel_attn.proj.weight'
+        - 'decoder_2.layer_former_2.mlp1.fc1.weight'
+        - 'decoder_2.layer_former_2.mlp1.dwconv.dwconv.weight'
+        - 'decoder_2.layer_former_2.mlp1.fc2.weight'
+        - 'decoder_2.layer_former_2.mlp2.fc1.weight'
+        - 'decoder_2.layer_former_2.mlp2.dwconv.dwconv.weight'
+        - 'decoder_2.layer_former_2.mlp2.fc2.weight'
+        - 'decoder_1.x1_linear.weight'
+        - 'decoder_1.cross_attn.attn.reprojection.weight'
+        - 'decoder_1.cross_attn.mlp.fc1.weight'
+        - 'decoder_1.cross_attn.mlp.dwconv.dwconv.weight'
+        - 'decoder_1.cross_attn.mlp.fc2.weight'
+        - 'decoder_1.concat_linear.weight'
+        - 'decoder_1.layer_up.expand.weight'
+        - 'decoder_1.last_layer.weight'
+        - 'decoder_1.layer_former_1.attn.keys.weight'
+        - 'decoder_1.layer_former_1.attn.queries.weight'
+        - 'decoder_1.layer_former_1.attn.values.weight'
+        - 'decoder_1.layer_former_1.attn.reprojection.weight'
+        - 'decoder_1.layer_former_1.channel_attn.qkv.weight'
+        - 'decoder_1.layer_former_1.channel_attn.proj.weight'
+        - 'decoder_1.layer_former_1.mlp1.fc1.weight'
+        - 'decoder_1.layer_former_1.mlp1.dwconv.dwconv.weight'
+        - 'decoder_1.layer_former_1.mlp1.fc2.weight'
+        - 'decoder_1.layer_former_1.mlp2.fc1.weight'
+        - 'decoder_1.layer_former_1.mlp2.dwconv.dwconv.weight'
+        - 'decoder_1.layer_former_1.mlp2.fc2.weight'
+        - 'decoder_1.layer_former_2.attn.keys.weight'
+        - 'decoder_1.layer_former_2.attn.queries.weight'
+        - 'decoder_1.layer_former_2.attn.values.weight'
+        - 'decoder_1.layer_former_2.attn.reprojection.weight'
+        - 'decoder_1.layer_former_2.channel_attn.qkv.weight'
+        - 'decoder_1.layer_former_2.channel_attn.proj.weight'
+        - 'decoder_1.layer_former_2.mlp1.dwconv.dwconv.weight'
+        - 'decoder_1.layer_former_2.mlp2.dwconv.dwconv.weight'
+    leave_enabled: True
+
+# Finetuning Stage
+finetuning_modifiers:
+  - !LearningRateFunctionModifier
+    init_lr: eval(init_lr)
+    final_lr: eval(final_lr)
+    lr_func: cosine
+    start_epoch: eval(stabilization_epochs + pruning_epochs)
+    end_epoch: eval(stabilization_epochs + pruning_epochs + finetuning_epochs)     

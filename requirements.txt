@@ -1,0 +1,4 @@
+einops
+tensorboardX
+medpy
+sparseml [torchvision]
