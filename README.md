@@ -23,29 +23,29 @@ To load a network, use the --module argument when running the train script (``--
     `pip install -r requirements.txt`
 
 3.1) Run the below code to train the Embedded-ViT with and without grouping on the synapse dataset with image sizes of 224, 128 or 64.
-    `
+    
     python3 train.py --root_path ./data/Synapse/train_npz --test_path ./data/Synapse/test_vol_h5 --batch_size 10 --eval_interval 1 --max_epochs 1 --module networks.Embedded-ViT_224.EmbeddedViT --img_size 224
-   `
+   
     
-    `
+    
     python3 train.py --root_path ./data/Synapse/train_npz --test_path ./data/Synapse/test_vol_h5 --batch_size 10 --eval_interval 1 --max_epochs 1 --module networks.Embedded-ViT_128.EmbeddedViT --img_size 128
-   `
+   
     
-    `
+    
     python3 train.py --root_path ./data/Synapse/train_npz --test_path ./data/Synapse/test_vol_h5 --batch_size 10 --eval_interval 1 --max_epochs 1 --module networks.Embedded-ViT_64.EmbeddedViT --img_size 64
-   `
+   
     
     `
     python3 train.py --root_path ./data/Synapse/train_npz --test_path ./data/Synapse/test_vol_h5 --batch_size 10 --eval_interval 1 --max_epochs 1 --module networks.Embedded-ViT_224_grouping.EmbeddedViT --img_size 224
-   `
+   
     
-    ```bash
+    
     python3 train.py --root_path ./data/Synapse/train_npz --test_path ./data/Synapse/test_vol_h5 --batch_size 10 --eval_interval 1 --max_epochs 1 --module networks.Embedded-ViT_128_grouping.EmbeddedViT --img_size 128
-    ```
     
-    ```bash
+    
+    
     python3 train.py --root_path ./data/Synapse/train_npz --test_path ./data/Synapse/test_vol_h5 --batch_size 10 --eval_interval 1 --max_epochs 1 --module networks.Embedded-ViT_64_grouping.EmbeddedViT --img_size 64
-    ```
+    
 
 3.2) For half precision training use ``train_half.py`` instead ``train.py``Run the below code to train the Embedded-ViT on the synapse dataset.
 
