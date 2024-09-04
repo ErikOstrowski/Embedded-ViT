@@ -35,7 +35,7 @@ To load a network, use the --module argument when running the train script (``--
     python3 train.py --root_path ./data/Synapse/train_npz --test_path ./data/Synapse/test_vol_h5 --batch_size 10 --eval_interval 1 --max_epochs 1 --module networks.Embedded-ViT_64.EmbeddedViT --img_size 64
    
     
-    `
+    
     python3 train.py --root_path ./data/Synapse/train_npz --test_path ./data/Synapse/test_vol_h5 --batch_size 10 --eval_interval 1 --max_epochs 1 --module networks.Embedded-ViT_224_grouping.EmbeddedViT --img_size 224
    
     
@@ -71,7 +71,7 @@ To load a network, use the --module argument when running the train script (``--
     
     
     python3 train_prun_64.py --root_path ./data/Synapse/train_npz --test_path ./data/Synapse/test_vol_h5 --batch_size 10 --eval_interval 1 --max_epochs 1 --module networks.Embedded-ViT_64.EmbeddedViT --input_model ./PATH/TO/MODEL/synapse_epoch_399.pth
-    ```
+    
     
     
     python3 train_prun_224.py --root_path ./data/Synapse/train_npz --test_path ./data/Synapse/test_vol_h5 --batch_size 10 --eval_interval 1 --max_epochs 1 --module networks.Embedded-ViT_224_grouping.EmbeddedViT --input_model ./PATH/TO/MODEL/synapse_epoch_399.pth
