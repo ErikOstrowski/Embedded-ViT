@@ -28,29 +28,29 @@ To load a network, use the --module argument when running the train script (``--
     
     ```
     
-        ```bash
+    ```bash
     python3 train.py --root_path ./data/Synapse/train_npz --test_path ./data/Synapse/test_vol_h5 --batch_size 10 --eval_interval 1 --max_epochs 1 --module networks.Embedded-ViT_128.EmbeddedViT --img_size 128
 
     
     ```
     
-        ```bash
+    ```bash
     python3 train.py --root_path ./data/Synapse/train_npz --test_path ./data/Synapse/test_vol_h5 --batch_size 10 --eval_interval 1 --max_epochs 1 --module networks.Embedded-ViT_64.EmbeddedViT --img_size 64
     
     ```
     
-        ```bash
+    ```bash
     python3 train.py --root_path ./data/Synapse/train_npz --test_path ./data/Synapse/test_vol_h5 --batch_size 10 --eval_interval 1 --max_epochs 1 --module networks.Embedded-ViT_224_grouping.EmbeddedViT --img_size 224
     
     ```
     
-        ```bash
+    ```bash
     python3 train.py --root_path ./data/Synapse/train_npz --test_path ./data/Synapse/test_vol_h5 --batch_size 10 --eval_interval 1 --max_epochs 1 --module networks.Embedded-ViT_128_grouping.EmbeddedViT --img_size 128
 
     
     ```
     
-        ```bash
+    ```bash
     python3 train.py --root_path ./data/Synapse/train_npz --test_path ./data/Synapse/test_vol_h5 --batch_size 10 --eval_interval 1 --max_epochs 1 --module networks.Embedded-ViT_64_grouping.EmbeddedViT --img_size 64
     
     ```
@@ -74,29 +74,29 @@ To load a network, use the --module argument when running the train script (``--
     
     ```
     
-        ```bash
+    ```bash
     python3 train_prun_128.py --root_path ./data/Synapse/train_npz --test_path ./data/Synapse/test_vol_h5 --batch_size 10 --eval_interval 1 --max_epochs 1 --module networks.Embedded-ViT_128.EmbeddedViT --input_model ./PATH/TO/MODEL/synapse_epoch_399.pth
 
     
     ```
     
-        ```bash
+    ```bash
     python3 train_prun_64.py --root_path ./data/Synapse/train_npz --test_path ./data/Synapse/test_vol_h5 --batch_size 10 --eval_interval 1 --max_epochs 1 --module networks.Embedded-ViT_64.EmbeddedViT --input_model ./PATH/TO/MODEL/synapse_epoch_399.pth
     
     ```
     
-        ```bash
+    ```bash
     python3 train_prun_224.py --root_path ./data/Synapse/train_npz --test_path ./data/Synapse/test_vol_h5 --batch_size 10 --eval_interval 1 --max_epochs 1 --module networks.Embedded-ViT_224_grouping.EmbeddedViT --input_model ./PATH/TO/MODEL/synapse_epoch_399.pth
     
     ```
     
-        ```bash
+    ```bash
     python3 train_prun_128.py --root_path ./data/Synapse/train_npz --test_path ./data/Synapse/test_vol_h5 --batch_size 10 --eval_interval 1 --max_epochs 1 --module networks.Embedded-ViT_128_grouping.EmbeddedViT --input_model ./PATH/TO/MODEL/synapse_epoch_399.pth
 
     
     ```
     
-        ```bash
+   ```bash
     python3 train_prun_64.py --root_path ./data/Synapse/train_npz --test_path ./data/Synapse/test_vol_h5 --batch_size 10 --eval_interval 1 --max_epochs 1 --module networks.Embedded-ViT_64_grouping.EmbeddedViT --input_model ./PATH/TO/MODEL/synapse_epoch_399.pth
     
     ```
@@ -117,6 +117,6 @@ Qualitative segmentation results on BraTS and DECATHLON
 
 ## Acknowledgements
 
-We gratefully thank the authors of [here](https://github.com/xmindflow/DAEFormer), from which some parts of our code are inspired.
+We gratefully thank the authors of [https://github.com/xmindflow/DAEFormer](https://github.com/xmindflow/DAEFormer), from which some parts of our code are inspired.
 
 
