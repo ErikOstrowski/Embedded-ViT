@@ -61,29 +61,29 @@ To load a network, use the --module argument when running the train script (``--
 
 
 3.3) To prun the trained full precision model run the below code
-    ```
+    
     python3 train_prun_224.py --root_path ./data/Synapse/train_npz --test_path ./data/Synapse/test_vol_h5 --batch_size 10 --eval_interval 1 --max_epochs 1 --module networks.Embedded-ViT_224.EmbeddedViT --input_model ./PATH/TO/MODEL/synapse_epoch_399.pth
-    ```
     
-    ```
+    
+    
     python3 train_prun_128.py --root_path ./data/Synapse/train_npz --test_path ./data/Synapse/test_vol_h5 --batch_size 10 --eval_interval 1 --max_epochs 1 --module networks.Embedded-ViT_128.EmbeddedViT --input_model ./PATH/TO/MODEL/synapse_epoch_399.pth
-    ```
     
-    ```bash
+    
+    
     python3 train_prun_64.py --root_path ./data/Synapse/train_npz --test_path ./data/Synapse/test_vol_h5 --batch_size 10 --eval_interval 1 --max_epochs 1 --module networks.Embedded-ViT_64.EmbeddedViT --input_model ./PATH/TO/MODEL/synapse_epoch_399.pth
     ```
     
-    ```bash
+    
     python3 train_prun_224.py --root_path ./data/Synapse/train_npz --test_path ./data/Synapse/test_vol_h5 --batch_size 10 --eval_interval 1 --max_epochs 1 --module networks.Embedded-ViT_224_grouping.EmbeddedViT --input_model ./PATH/TO/MODEL/synapse_epoch_399.pth
-    ```
     
-    ```bash
+    
+    
     python3 train_prun_128.py --root_path ./data/Synapse/train_npz --test_path ./data/Synapse/test_vol_h5 --batch_size 10 --eval_interval 1 --max_epochs 1 --module networks.Embedded-ViT_128_grouping.EmbeddedViT --input_model ./PATH/TO/MODEL/synapse_epoch_399.pth
-    ```
     
-   ```bash
+    
+   
     python3 train_prun_64.py --root_path ./data/Synapse/train_npz --test_path ./data/Synapse/test_vol_h5 --batch_size 10 --eval_interval 1 --max_epochs 1 --module networks.Embedded-ViT_64_grouping.EmbeddedViT --input_model ./PATH/TO/MODEL/synapse_epoch_399.pth
-   ```
+   
     
  4) Run the below code to test the Embedded-ViT on the synapse dataset in full and half precision.
     ```bash
